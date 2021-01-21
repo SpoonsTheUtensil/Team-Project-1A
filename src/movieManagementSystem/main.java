@@ -25,6 +25,19 @@ public class main {
 
 		Movie movie = new Movie();
 		
+		
+	}
+	
+	public static void printMenu() {
+		System.out.println("Select an option: ");
+		System.out.println("1. Display movies");
+		System.out.println("2. Add movies");
+		System.out.println("3. Edit release dates");
+		System.out.println("4. Edit movie description");
+		System.out.println("5. Start showing movies in theaters");
+		System.out.println("6. Number of movies before a date");
+		System.out.println("7. Save");
+		System.out.println("8. Exit");
 	}
 
 }
