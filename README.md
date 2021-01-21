@@ -7,7 +7,7 @@ You can access these funcionalities through the built-in menu.
 *There are not any required modules outside of the built-in ones*
 
 
-**Group:** *Alex Schmierbach*, *Abbas Dargahi*, *Logan Wise*, *Zachary Deall*
+**_Group:_** *Alex Schmierbach*, *Abbas Dargahi*, *Logan Wise*, *Zachary Deall*
 
 
 
