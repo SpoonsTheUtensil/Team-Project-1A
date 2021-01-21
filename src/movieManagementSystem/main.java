@@ -12,11 +12,13 @@ public class main {
 	public static void main(String[] args) throws IOException {
 		
 		Scanner userInput = new Scanner(System.in);
+		boolean runProgram = true;
+		int optionChoice = 0;
 
 		System.out.println("What is the name of the file you'd like to test? (.txt file no need to add extension) ");
 		String testCaseFile = userInput.next();
 		
-		FileInputStream inputFile1 = new FileInputStream(testCaseFile = ".txt");
+		FileInputStream inputFile1 = new FileInputStream(testCaseFile + ".txt");
 		
 		
 		// ArrayList for each separate movie list
@@ -24,6 +26,36 @@ public class main {
 		ArrayList<Movie> moviesComing = new ArrayList<>();
 
 		Movie movie = new Movie();
+		
+		while (runProgram) {
+			System.out.println();
+			printMenu();
+			optionChoice = userInput.next().charAt(0);
+			
+			switch (optionChoice) {
+			case '1':
+				break;
+			case '2':
+				System.out.println("Hi");
+				break;
+			case '3':
+				break;
+			case '4':
+				break;
+			case '5':
+				break;
+			case '6':
+				break;
+			case '7':
+				break;
+			case '8':
+				System.exit(0);
+			default:
+				System.out.println("Invalid option. Please try again.");
+				break;
+			}
+			
+		}
 		
 		
 	}
@@ -41,3 +73,5 @@ public class main {
 	}
 
 }
+
+
