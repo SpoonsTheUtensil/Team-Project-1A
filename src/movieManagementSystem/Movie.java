@@ -28,4 +28,64 @@ public class Movie {
 		
 	}
 	
+	public void setMovieTitle(String title) {
+		
+		movie_name = title;
+		
+	}
+	
+	public void setMovieDesc(String desc) {
+		
+		movie_description = desc;
+		
+	}
+	
+	public void setMovieReleaseDate(LocalDate date) {
+		
+		movie_releaseDate = date;
+		
+	}
+	
+	public void setMovieRecieveDate(LocalDate date) {
+		
+		movie_receiveDate = date;
+		
+	}
+	
+	public void setMovieStats(Status status) {
+		
+		movie_status = status;
+		
+	}
+	
+	public String getMovieTitle() {
+		
+		return movie_name;
+		
+	}
+	
+	public String getMovieDesc() {
+		
+		return movie_description;
+		
+	}
+	
+	public LocalDate getMovieRelease() {
+		
+		return movie_releaseDate;
+		
+	}
+	
+	public LocalDate getMovieReceive() {
+		
+		return movie_receiveDate;
+		
+	}
+	
+	public Status getMovieStatus() {
+		
+		return movie_status;
+		
+	}
+	
 }
