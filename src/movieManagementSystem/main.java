@@ -125,8 +125,10 @@ public class main {
 		switch (action) {
 		case 1: // Editing release dates
 			System.out.println("Enter the new release date for " + movieName + " (dd/MM/yyyy");
-			String newRelease = userInput.next();
-			Date newDate = new SimpleDateFormat("dd/MM/yyyy").parse(newRelease);
+			int releaseMonth = userInput.nextInt();
+			int releaseDay = userInput.nextInt();
+			int releaseYear = userInput.nextInt();
+			Date newDate = Date(releaseMonth, releaseDay, releaseYear);
 			movieName.setMovieReleaseDate(newDate);
 			
 			break;
