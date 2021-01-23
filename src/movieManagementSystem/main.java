@@ -40,10 +40,10 @@ public class main {
 				addMovie();
 				break;
 			case '3':
-				editMovie();
+				editMovie(1);
 				break;
 			case '4':
-				editMovie();
+				editMovie(2);
 				break;
 			case '5':
 				showMovies();
@@ -95,7 +95,14 @@ public class main {
 	/**
 	 * Allows the user to edit a movie
 	 */
-	public static void editMovie() {
+	public static void editMovie(String movieName, int action, ArrayList<Movie> comingMovies) {
+		
+		switch (action) {
+		case 1: // Editing release dates
+			break;
+		case 2: // Editing movie descriptions
+			break;
+		}
 		
 	}
 	
