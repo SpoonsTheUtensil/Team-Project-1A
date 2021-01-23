@@ -4,14 +4,18 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 public class main {
+	
+	static Scanner userInput = new Scanner(System.in);
 
 	public static void main(String[] args) throws IOException {
 		
-		Scanner userInput = new Scanner(System.in);
+		
 		boolean runProgram = true;
 		int optionChoice = 0;
 
@@ -40,7 +44,18 @@ public class main {
 				addMovie();
 				break;
 			case '3':
-				editMovie(1);
+				System.out.println("Please enter the movie to edit: ");
+				String movieName = userInput.next();
+				boolean coming = moviesComing.contains(movieName);
+				
+				if (coming) {
+					System.out.println("Enter the new release date for " + movieName);
+					String newRelease = userInput.next();
+					
+					
+				}
+				
+				editMovie(movieName, 1, moviesComing);
 				break;
 			case '4':
 				editMovie(2);
@@ -82,18 +97,18 @@ public class main {
 	 * Outputs a list of movies with coming and showing dates
 	 */
 	public static String displayMovies(ArrayList<Movie> showing, ArrayList<Movie> coming) {
-		//Display "showing" movies
-		System.out.println("Movies being shown: ");
-		for (Movie movie : showing) {
-			return System.out.println(Movie.getMovieTitle());
-		}
-		
-		//Display "coming" movies
-		System.out.println("Movies coming soon: ");
-		for (Movie movie : coming) {
-			return System.out.println(Movie.getMovieTitle());
-		}
-	}
+        //Display "showing" movies
+        System.out.println("Movies being shown: ");
+        for (Movie movie : showing) {
+            return System.out.println(Movie.getMovieTitle());
+        }
+        
+        //Display "coming" movies
+        System.out.println("Movies coming soon: ");
+        for (Movie movie : coming) {
+            return System.out.println(Movie.getMovieTitle());
+        }
+    }
 	
 	/**
 	 * Allows the user to add a movie to the "coming" list of movies
@@ -109,6 +124,11 @@ public class main {
 		
 		switch (action) {
 		case 1: // Editing release dates
+			System.out.println("Enter the new release date for " + movieName + " (dd/MM/yyyy");
+			String newRelease = userInput.next();
+			Date newDate = new SimpleDateFormat("dd/MM/yyyy").parse(newRelease);
+			movieName.setMovieReleaseDate(newDate);
+			
 			break;
 		case 2: // Editing movie descriptions
 			break;
