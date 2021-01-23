@@ -1,2 +1,5 @@
-name, releaseDate, description, reciecetDate, status
-Iron Man, 1/21/2020, Cool Space Man, 1/69/2020, recieved
+The Avenger's, 1/27/2018, Lots of heroes, 12/24/2019, released
+The Avenger's 2, 3/15/2019, Even more heroes, 5/22/2020, released
+Mummy, 4/15/2003, Kinda like Indiana Jones, 11/7/2020, recieved
+Mummy 2, 5/16/2004, More like Indiana Jones, 11/8/2020, recieved
+Mummy 3, 6/17/2005, A lot like Indiana Jones, 11/9/2020, recieved
