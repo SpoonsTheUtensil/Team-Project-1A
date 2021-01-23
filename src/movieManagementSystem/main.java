@@ -34,19 +34,25 @@ public class main {
 			
 			switch (optionChoice) {
 			case '1':
+				displayMovies();
 				break;
 			case '2':
-				System.out.println("Hi");
+				addMovie();
 				break;
 			case '3':
+				editMovie();
 				break;
 			case '4':
+				editMovie();
 				break;
 			case '5':
+				showMovies();
 				break;
 			case '6':
+				System.out.print(numOfComingMovies());
 				break;
 			case '7':
+				save();
 				break;
 			case '8':
 				System.exit(0);
@@ -54,16 +60,16 @@ public class main {
 				System.out.println("Invalid option. Please try again.");
 				break;
 			}
-			
 		}
-		
-		
 	}
 	
+	/**
+	 * Outputs a menu of actions the user can do
+	 */
 	public static void printMenu() {
 		System.out.println("Select an option: ");
 		System.out.println("1. Display movies");
-		System.out.println("2. Add movies");
+		System.out.println("2. Add movie");
 		System.out.println("3. Edit release dates");
 		System.out.println("4. Edit movie description");
 		System.out.println("5. Start showing movies in theaters");
@@ -71,7 +77,46 @@ public class main {
 		System.out.println("7. Save");
 		System.out.println("8. Exit");
 	}
-
+	
+	/**
+	 * Outputs a list of movies with coming and showing dates
+	 */
+	public static void displayMovies() {
+		
+	}
+	
+	/**
+	 * Allows the user to add a movie to the "coming" list of movies
+	 */
+	public static void addMovie() {
+		
+	}
+	
+	/**
+	 * Allows the user to edit a movie
+	 */
+	public static void editMovie() {
+		
+	}
+	
+	/**
+	 * Start showing movies with a given release date
+	 */
+	public static void showMovies() {
+		
+	}
+	
+	/**
+	 * Get the number of movies "coming" with a release date earlier then a given date
+	 */
+	public static int numOfComingMovies() {
+		return 1;
+	}
+	
+	/**
+	 * Save the new changes to an output file
+	 */
+	public static void save() {
+		
+	}
 }
-
-
