@@ -81,17 +81,17 @@ public class main {
 	/**
 	 * Outputs a list of movies with coming and showing dates
 	 */
-	public static String displayMovies(ArrayList<Movie> showing, ArrayList<Movie> coming) {
+	public static void displayMovies(ArrayList<Movie> showing, ArrayList<Movie> coming) {
 		//Display "showing" movies
 		System.out.println("Movies being shown: ");
 		for (Movie movie : showing) {
-			return System.out.println(Movie.getMovieTitle());
+			System.out.println(Movie.getMovieTitle());
 		}
 		
 		//Display "coming" movies
 		System.out.println("Movies coming soon: ");
 		for (Movie movie : coming) {
-			return System.out.println(Movie.getMovieTitle());
+			System.out.println(Movie.getMovieTitle());
 		}
 	}
 	
