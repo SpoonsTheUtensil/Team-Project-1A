@@ -81,8 +81,14 @@ public class main {
 	/**
 	 * Outputs a list of movies with coming and showing dates
 	 */
-	public static void displayMovies() {
+	public List<String> displayMovies(List<String> showing, List<String> coming) {
+		for (int i = 0; i < showing.length; i++) {
+			System.out.println(showing.getMovieTitle());
+		}
 		
+		for (int i = 0; i < coming.length; i++) {
+			System.out.println(coming.getMovieTitle());
+		}
 	}
 	
 	/**
