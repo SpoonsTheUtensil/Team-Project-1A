@@ -1,6 +1,6 @@
 package movieManagementSystem;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 public class Movie {
 
@@ -10,9 +10,11 @@ public class Movie {
 		RELEASED
 	}
 	
-	String movie_name, movie_description;
-	LocalDate movie_releaseDate, movie_receiveDate;
-	Status movie_status;
+	static String movie_name;
+	static String movie_description;
+	static Date movie_releaseDate;
+	static Date movie_receiveDate;
+	static Status movie_status;
 	
 	public Movie() {} // Default constructor
 	
@@ -29,11 +31,11 @@ public class Movie {
 		movie_description = desc;
 	}
 	
-	public void setMovieReleaseDate(LocalDate date) {
+	public void setMovieReleaseDate(Date date) {
 		movie_releaseDate = date;
 	}
 	
-	public void setMovieRecieveDate(LocalDate date) {
+	public void setMovieRecieveDate(Date date) {
 		movie_receiveDate = date;
 	}
 	
@@ -41,23 +43,23 @@ public class Movie {
 		movie_status = status;
 	}
 	
-	public String getMovieTitle() {
+	public static String getMovieTitle() {
 		return movie_name;
 	}
 	
-	public String getMovieDesc() {
+	public static String getMovieDesc() {
 		return movie_description;
 	}
 	
-	public LocalDate getMovieRelease() {
+	public static Date getMovieRelease() {
 		return movie_releaseDate;
 	}
 	
-	public LocalDate getMovieReceive() {
+	public static Date getMovieReceive() {
 		return movie_receiveDate;
 	}
 	
-	public Status getMovieStatus() {
+	public static Status getMovieStatus() {
 		return movie_status;
 	}
 }
