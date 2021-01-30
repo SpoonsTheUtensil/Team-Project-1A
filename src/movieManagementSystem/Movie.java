@@ -24,7 +24,6 @@ public class Movie {
 		movie_name = name;
 		movie_description = description;
 	}
-	
 
 	// Setter method for changing the movies' name to something new
 	public void setMovieTitle(String title) {
