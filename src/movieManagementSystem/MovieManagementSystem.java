@@ -201,25 +201,26 @@ public class MovieManagementSystem {
 	
 	/**
 	 * Get the number of movies "coming" with a release date earlier then a given date
+	 * @throws ParseException 
 	 */
-	public static int numOfComingMovies(ArrayList<Movie> comingMovies){ 
-		return comingMovies.size();
-		System.out.println("Enter a date (MM/DD/YYYY): ");
-		int releaseMonth = userInput.nextInt();
-		int releaseDay = userInput.nextInt();
-		long releaseYear = userInput.nextLong();
-		Date userDate = new Date(releaseMonth, releaseDay, releaseYear);
+	public static int numOfComingMovies(ArrayList<Movie> comingMovies) throws ParseException{ 
+		userInput.nextLine();
+		System.out.println("Enter a release date (yyyy-MM-dd): ");
+		String releasedInput = userInput.nextLine();
+		SimpleDateFormat releasedSimplified = new SimpleDateFormat("yyyy-MM-dd");
+		Date userDate = releasedSimplified.parse(releasedInput);
 		
-		
+		int numMovies = 0;
 	   
 		for (Movie movie : comingMovies) {
-			if (userDate < movie.getMovieRelease()) {
-				
+			
+			if (movie.getMovieRelease().before(userDate)) {
+				numMovies++;
 			}
 		}
 		
 		
-		return 1;
+		return numMovies;
 	}
 	
 	/**
