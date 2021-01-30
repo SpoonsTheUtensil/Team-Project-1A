@@ -25,6 +25,7 @@ public class Movie {
 		movie_description = description;
 	}
 	
+
 	// Setter method for changing the movies' name to something new
 	public void setMovieTitle(String title) {
 		movie_name = title;
@@ -50,6 +51,7 @@ public class Movie {
 		movie_status = status;
 	}
 	
+
 	// Getter method for obtaining the movies' name
 	public String getMovieTitle() {
 		return movie_name;
