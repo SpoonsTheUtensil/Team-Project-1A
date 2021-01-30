@@ -3,19 +3,22 @@ package movieManagementSystem;
 import java.util.Date;
 
 public class Movie {
-
+	
+	//Enumerator
 	enum Status
 	{
 		RECEIVED,
 		RELEASED
 	}
 	
+	//Data fields
 	static String movie_name;
 	static String movie_description;
 	static Date movie_releaseDate;
 	static Date movie_receiveDate;
 	static Status movie_status;
 	
+	//Constructors
 	public Movie() {} // Default constructor
 	
 	public Movie(String name, String description) {
@@ -23,6 +26,7 @@ public class Movie {
 		movie_description = description;
 	}
 	
+	//Setters
 	public void setMovieTitle(String title) {
 		movie_name = title;
 	}
@@ -43,6 +47,7 @@ public class Movie {
 		movie_status = status;
 	}
 	
+	//Getters
 	public static String getMovieTitle() {
 		return movie_name;
 	}
