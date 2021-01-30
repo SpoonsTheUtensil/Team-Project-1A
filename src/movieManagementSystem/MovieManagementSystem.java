@@ -1,5 +1,6 @@
 package movieManagementSystem;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -34,12 +35,20 @@ public class MovieManagementSystem {
 		
 		/**
 		 * Input File Format
-		 * {Movie Name} {Recieved Date} {Movie Description} {Released Date} {Movie Status}
+		 * {Movie Name} {Received Date} {Movie Description} {Released Date} {Movie Status}
 		 * Dates are broken down further in the format like so ({Month} {Day} {Year})
 		 * Example Input Movie
-		 * Iron Man 5 13 2018 A cool super hero movie 5 20 2018 recieved
+		 * Iron Man 5 13 2018 A cool super hero movie 5 20 2018 received
 		 */
-		inputFile = new FileInputStream(testCaseFile + ".txt");
+		File f = new File(testCaseFile + ".txt");
+		
+		while (!f.exists()) {
+			System.out.println("File does not exist. Please try again.");
+			testCaseFile = userInput.next();
+			f = new File(testCaseFile + ".txt");
+		}
+		
+		inputFile = new FileInputStream(f);
 		
 		Scanner fileReader = new Scanner(inputFile).useDelimiter(",");
 		
@@ -110,14 +119,14 @@ public class MovieManagementSystem {
 	 * Outputs a menu of actions the user can do
 	 */
 	public static void printMenu() {
-		System.out.println("Select an option: ");
-		System.out.println("1. Display movies");
-		System.out.println("2. Add movie");
-		System.out.println("3. Edit movie release date or decription");
-		System.out.println("4. Start showing movies in theaters");
-		System.out.println("5. Number of movies before a date");
-		System.out.println("6. Save");
-		System.out.println("7. Exit");
+		System.out.println("#   -----MENU----- ");
+		System.out.println("1 - Display movies"
+				+ "\n2 - Add movie"
+				+ "\n3 - Edit movie release date or decription"
+				+ "\n4 - Start showing movies in theaters"
+				+ "\n5 - Number of movies before a date"
+				+ "\n6 - Save"
+				+ "\n7 - Exit");
 	}
 	
 	/**
@@ -150,25 +159,29 @@ public class MovieManagementSystem {
 	public static void editMovie(ArrayList<Movie> coming) {
 		
 		System.out.println("What is the name of the movie you'd like to edit?");
-		String movieName = userInput.nextLine();
+		String movieName = userInput.next();
+
 		for (Movie movie : coming) {
-			if (movie.getMovieTitle() == movieName) {
-				System.out.println("Would you like to edit the release date(1) or description(2)?");
+			if (movie.getMovieTitle().equals(movieName)) {
+				System.out.println("To edit the release date enter (1) | To edit the description enter (2)");
 				int editAction = userInput.nextInt();
 				switch (editAction) {
 					case 1:
-						System.out.println("Enter the new release date for " + movieName + "(MM/DD/YYYY");
+						System.out.println("Enter the new release month for " + movieName + "(MM)");
 						int releaseMonth = userInput.nextInt();
+						System.out.println("Enter the new release day for " + movieName + "(DD)");
 						int releaseDay = userInput.nextInt();
+						System.out.println("Enter the new release year for " + movieName + "(YYYY)");
 						long releaseYear = userInput.nextLong();
+						
 						Date newReleaseDate = new Date(releaseMonth, releaseDay, releaseYear);
 						movie.setMovieReleaseDate(newReleaseDate);
-						break;
+						return;
 					case 2:
 						System.out.println("Enter the new description for " + movieName);
 						String newDesc = userInput.next();
 						movie.setMovieDesc(newDesc);
-						break;
+						return;
 				}
 			}
 			else {
