@@ -13,8 +13,8 @@ public class MovieManagementSystem {
 	
 	//Opening Java modules
 	static Scanner userInput = new Scanner(System.in);
-	static FileOutputStream outputFile1 = new FileOutputStream("output.txt");
-	static PrintWriter writer = new PrintWriter(outputFile1);
+	//static FileOutputStream outputFile = new FileOutputStream("output.txt");
+	//static PrintWriter writer = new PrintWriter(outputFile);
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -92,7 +92,7 @@ public class MovieManagementSystem {
 				System.out.print(numOfComingMovies(moviesComing));
 				break;
 			case '6':
-				save(moviesComing, moviesShowing);
+				//save(moviesComing, moviesShowing);
 				break;
 			case '7':
 				userInput.close();
@@ -193,6 +193,7 @@ public class MovieManagementSystem {
 	/**
 	 * Save the new changes to an output file
 	 */
+	/*
 	public static void save(ArrayList<Movie> comingMovies, ArrayList<Movie> showingMovies) {
 		writer.println("Movies coming to theaters: ");
 		writer.println("---------------------------");
@@ -212,4 +213,5 @@ public class MovieManagementSystem {
 		}
 		writer.close();
 	}
+	*/
 }
