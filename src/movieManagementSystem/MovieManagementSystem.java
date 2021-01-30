@@ -5,7 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 
 import movieManagementSystem.Movie.Status;
@@ -17,7 +20,7 @@ public class MovieManagementSystem {
 	static FileOutputStream outputFile;
 	static PrintWriter writer;
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException, ParseException{
 		
 		boolean runProgram = true;
 		int optionChoice = 0;
@@ -40,6 +43,7 @@ public class MovieManagementSystem {
 		 * Example Input Movie
 		 * Iron Man 5 13 2018 A cool super hero movie 5 20 2018 received
 		 */
+
 		File f = new File(testCaseFile + ".txt");
 		
 		while (!f.exists()) {
@@ -55,16 +59,14 @@ public class MovieManagementSystem {
 		while (fileReader.hasNext()) {
 			Movie newMovie = new Movie();
 			newMovie.setMovieTitle(fileReader.next());
-			int m = fileReader.nextInt();
-			int d = fileReader.nextInt();
-			long y = fileReader.nextLong();
-			Date recievedDate = new Date(m, d, y);
+			String recievedInput = fileReader.next();
+			SimpleDateFormat recievedSimplified = new SimpleDateFormat("yyyy-MM-dd");
+			Date recievedDate = recievedSimplified.parse(recievedInput);
 			newMovie.setMovieRecieveDate(recievedDate);
 			newMovie.setMovieDesc(fileReader.next());
-			m = fileReader.nextInt();
-			d = fileReader.nextInt();
-			y = fileReader.nextLong();
-			Date releasedDate = new Date(m, d, y);
+			String releasedInput = fileReader.next();
+			SimpleDateFormat releasedSimplified = new SimpleDateFormat("yyyy-MM-dd");
+			Date releasedDate = releasedSimplified.parse(releasedInput);
 			newMovie.setMovieReleaseDate(releasedDate);
 			String status = fileReader.nextLine().replace(",", "");
 			switch (status) {
@@ -156,7 +158,7 @@ public class MovieManagementSystem {
 	/**
 	 * Allows the user to edit a movie
 	 */
-	public static void editMovie(ArrayList<Movie> coming) {
+	public static void editMovie(ArrayList<Movie> coming) throws ParseException{
 		
 		System.out.println("What is the name of the movie you'd like to edit?");
 		String movieName = userInput.next();
@@ -166,15 +168,14 @@ public class MovieManagementSystem {
 				int editAction = userInput.nextInt();
 				switch (editAction) {
 					case 1:
-						System.out.println("Enter the new release month for " + movieName + "(MM)");
-						int releaseMonth = userInput.nextInt();
-						System.out.println("Enter the new release day for " + movieName + "(DD)");
-						int releaseDay = userInput.nextInt();
-						System.out.println("Enter the new release year for " + movieName + "(YYYY)");
-						long releaseYear = userInput.nextLong();
-						
-						Date newReleaseDate = new Date(releaseMonth, releaseDay, releaseYear);
-						movie.setMovieReleaseDate(newReleaseDate);
+						userInput.nextLine();
+						System.out.println("Enter the new release date (yyyy-MM-dd): ");
+						String releasedInput = userInput.nextLine();
+						SimpleDateFormat releasedSimplified = new SimpleDateFormat("yyyy-MM-dd");
+						Date newReleasedDate = releasedSimplified.parse(releasedInput);
+						System.out.print(movie.getMovieRelease());
+						movie.setMovieReleaseDate(newReleasedDate);
+						System.out.print(movie.getMovieRelease());
 						return;
 					case 2:
 						userInput.nextLine();
@@ -201,7 +202,7 @@ public class MovieManagementSystem {
 	/**
 	 * Get the number of movies "coming" with a release date earlier then a given date
 	 */
-	public static int numOfComingMovies(ArrayList<Movie> comingMovies) {
+	public static int numOfComingMovies(ArrayList<Movie> comingMovies){ 
 		return comingMovies.size();
 		System.out.println("Enter a date (MM/DD/YYYY): ");
 		int releaseMonth = userInput.nextInt();
