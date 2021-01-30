@@ -97,6 +97,7 @@ public class MovieManagementSystem {
 				save(moviesComing, moviesShowing);
 				break;
 			case '7':
+				outputFile.close();
 				userInput.close();
 				System.exit(0);
 			default:
@@ -189,7 +190,16 @@ public class MovieManagementSystem {
 	 * Get the number of movies "coming" with a release date earlier then a given date
 	 */
 	public static int numOfComingMovies(ArrayList<Movie> comingMovies) {
-		return comingMovies.size();
+		Scanner userInput = new Scanner(System.in); 
+		System.out.println("Enter a date: ");
+		String input = userInput.nextLine();
+	   
+		for (int i = 0; i < comingMovies.size(); i++) {
+			
+		}
+		
+		
+		return 1;
 	}
 	
 	/**
