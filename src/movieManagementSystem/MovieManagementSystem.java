@@ -4,7 +4,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,10 +11,12 @@ import movieManagementSystem.Movie.Status;
 
 public class MovieManagementSystem {
 	
+	//Opening Java modules
 	static Scanner userInput = new Scanner(System.in);
-
+	static FileOutputStream outputFile1 = new FileOutputStream("output.txt");
+	static PrintWriter writer = new PrintWriter(outputFile1);
+	
 	public static void main(String[] args) throws IOException {
-		
 		
 		boolean runProgram = true;
 		int optionChoice = 0;
@@ -88,10 +89,10 @@ public class MovieManagementSystem {
 				showMovies();
 				break;
 			case '5':
-				System.out.print(numOfComingMovies());
+				System.out.print(numOfComingMovies(moviesComing));
 				break;
 			case '6':
-				save();
+				save(moviesComing, moviesShowing);
 				break;
 			case '7':
 				userInput.close();
@@ -102,7 +103,7 @@ public class MovieManagementSystem {
 			}
 		}
 	}
-	
+
 	/**
 	 * Outputs a menu of actions the user can do
 	 */
@@ -185,14 +186,30 @@ public class MovieManagementSystem {
 	/**
 	 * Get the number of movies "coming" with a release date earlier then a given date
 	 */
-	public static int numOfComingMovies() {
-		return 1;
+	public static int numOfComingMovies(ArrayList<Movie> comingMovies) {
+		return comingMovies.size();
 	}
 	
 	/**
 	 * Save the new changes to an output file
 	 */
-	public static void save() {
+	public static void save(ArrayList<Movie> comingMovies, ArrayList<Movie> showingMovies) {
+		writer.println("Movies coming to theaters: ");
+		writer.println("---------------------------");
+		//Print coming movies to output file
+		for (int i = 0; i < comingMovies.size(); i++ ) {
+			writer.println(comingMovies.get(i));
+		}
 		
+		//Print a space between lists
+		writer.println("\n");
+		
+		writer.println("Movies showing in theaters: ");
+		writer.println("----------------------------");
+		//Print showing movies to output file
+		for (int i = 0; i < showingMovies.size(); i++) {
+			writer.println(showingMovies.get(i));
+		}
+		writer.close();
 	}
 }
