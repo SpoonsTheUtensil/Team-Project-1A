@@ -50,7 +50,6 @@ public class Movie {
 		movie_status = status;
 	}
 	
-
 	// Getter method for obtaining the movies' name
 	public String getMovieTitle() {
 		return movie_name;
@@ -78,6 +77,6 @@ public class Movie {
 	
 	// Overrides Object.toString to print the movies' name
 	public String toString() {
-		return movie_name.trim();
+		return movie_name;
 	}
 }

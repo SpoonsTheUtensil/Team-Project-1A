@@ -160,7 +160,6 @@ public class MovieManagementSystem {
 		
 		System.out.println("What is the name of the movie you'd like to edit?");
 		String movieName = userInput.next();
-
 		for (Movie movie : coming) {
 			if (movie.getMovieTitle().equals(movieName)) {
 				System.out.println("To edit the release date enter (1) | To edit the description enter (2)");
@@ -178,8 +177,9 @@ public class MovieManagementSystem {
 						movie.setMovieReleaseDate(newReleaseDate);
 						return;
 					case 2:
-						System.out.println("Enter the new description for " + movieName);
-						String newDesc = userInput.next();
+						userInput.nextLine();
+						String newDesc = userInput.nextLine();
+						System.out.print("Enter the new description for " + movieName);
 						movie.setMovieDesc(newDesc);
 						return;
 				}
