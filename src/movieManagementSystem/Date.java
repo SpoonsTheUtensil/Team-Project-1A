@@ -1,6 +1,8 @@
 package movieManagementSystem;
 
-public class Date {
+import java.util.Comparator;
+
+public class Date implements Comparator<Date> {
 	
 	// Initial variable declaration
 	int month, day;
@@ -59,4 +61,14 @@ public class Date {
 				getDay() + "/" + 
 				getYear();
 	}
+
+	@Override
+	public int compare(Date o1, Date o2) {
+		return o1.compareTo(02);
+	}
+
+	
+
+
+	
 }
