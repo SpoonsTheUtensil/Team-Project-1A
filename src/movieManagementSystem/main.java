@@ -11,7 +11,10 @@ import java.util.Scanner;
 
 public class main {
 	
+	//Opening Java modules
 	static Scanner userInput = new Scanner(System.in);
+	static FileOutputStream outputFile1 = new FileOutputStream("output1.txt");
+	static PrintWriter writer = new PrintWriter(outputFile1);	
 
 	public static void main(String[] args) throws IOException {
 		
@@ -22,8 +25,8 @@ public class main {
 		System.out.println("What is the name of the file you'd like to test? (.txt file no need to add extension) ");
 		String testCaseFile = userInput.next();
 		
-		FileInputStream inputFile1 = new FileInputStream(testCaseFile + ".txt");
-		
+		//Opening input stream
+		FileInputStream inputFile1 = new FileInputStream(testCaseFile + ".txt");	
 		
 		// ArrayList for each separate movie list
 		ArrayList<Movie> moviesShowing = new ArrayList<>();
@@ -64,10 +67,10 @@ public class main {
 				showMovies();
 				break;
 			case '6':
-				System.out.print(numOfComingMovies());
+				System.out.print(numOfComingMovies(moviesComing));
 				break;
 			case '7':
-				save();
+				save(moviesComing, moviesShowing);
 				break;
 			case '8':
 				System.exit(0);
@@ -148,14 +151,35 @@ public class main {
 	/**
 	 * Get the number of movies "coming" with a release date earlier then a given date
 	 */
-	public static int numOfComingMovies() {
-		return 1;
+	public static int numOfComingMovies(ArrayList<Movie> comingMovies) {
+		return comingMovies.size();
 	}
 	
 	/**
 	 * Save the new changes to an output file
 	 */
-	public static void save() {
+	public static void save(ArrayList<Movie> comingMovies, ArrayList<Movie> showingMovies) {
+		writer.println("Movies coming to theaters: ");
+		writer.println("---------------------------");
+		//Print coming movies to output file
+		for (int i = 0; i < comingMovies.size(); i++ ) {
+			writer.println(comingMovies.get(i));
+		}
 		
+		//Print a space between lists
+		writer.println("\n");
+		
+		writer.println("Movies showing in theaters: ");
+		writer.println("----------------------------");
+		//Print showing movies to output file
+		for (int i = 0; i < showingMovies.size(); i++) {
+			writer.println(showingMovies.get(i));
+		}
 	}
+	
+	//Closing Java modules
+	writer.close();
+	outputFile1.close();
+	scanner.close()
+	inputFile1.close();
 }
