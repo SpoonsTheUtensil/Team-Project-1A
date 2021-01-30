@@ -1,65 +1,82 @@
 package movieManagementSystem;
 
-import java.util.Date;
-
 public class Movie {
 
+	// Enumeration structure to have constants for movies' status
 	enum Status
 	{
 		RECEIVED,
 		RELEASED
 	}
 	
-	static String movie_name;
-	static String movie_description;
-	static Date movie_releaseDate;
-	static Date movie_receiveDate;
-	static Status movie_status;
+	// Initial variable declaration
+	String movie_name;
+	String movie_description;
+	Date movie_releaseDate;
+	Date movie_receiveDate;
+	Status movie_status;
 	
-	public Movie() {} // Default constructor
+	// Default constructor
+	public Movie() {}
 	
+	// Constructor allowing for some variable to be initialized with the object
 	public Movie(String name, String description) {
 		movie_name = name;
 		movie_description = description;
 	}
 	
+	// Setter method for changing the movies' name to something new
 	public void setMovieTitle(String title) {
 		movie_name = title;
 	}
 	
+	// Setter method for changing the movies' description to something new
 	public void setMovieDesc(String desc) {
 		movie_description = desc;
 	}
 	
+	// Setter method for changing the movies' release date to something new
 	public void setMovieReleaseDate(Date date) {
 		movie_releaseDate = date;
 	}
 	
+	// Setter method for changing the movies' received date to something new
 	public void setMovieRecieveDate(Date date) {
 		movie_receiveDate = date;
 	}
 	
-	public void setMovieStats(Status status) {
+	// Setter method for changing the movies' status
+	public void setMovieStatus(Status status) {
 		movie_status = status;
 	}
 	
-	public static String getMovieTitle() {
+	// Getter method for obtaining the movies' name
+	public String getMovieTitle() {
 		return movie_name;
 	}
 	
-	public static String getMovieDesc() {
+	// Getter method for obtaining the movies' description
+	public String getMovieDesc() {
 		return movie_description;
 	}
 	
-	public static Date getMovieRelease() {
+	// Getter method for obtaining the movies' released date
+	public Date getMovieRelease() {
 		return movie_releaseDate;
 	}
 	
-	public static Date getMovieReceive() {
+	// Getter method for obtaining the movies' received date
+	public Date getMovieReceive() {
 		return movie_receiveDate;
 	}
 	
-	public static Status getMovieStatus() {
+	// Getter method for obtaining the movies' current status
+	public Status getMovieStatus() {
 		return movie_status;
+	}
+	
+	// Overrides Object.toString to print the movies' name
+	public String toString() {
+		return movie_name.trim();
 	}
 }
