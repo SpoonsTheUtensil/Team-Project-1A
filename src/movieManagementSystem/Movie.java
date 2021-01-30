@@ -1,7 +1,5 @@
 package movieManagementSystem;
 
-import java.util.Date;
-
 public class Movie {
 
 	// Enumeration structure to have constants for movies' status

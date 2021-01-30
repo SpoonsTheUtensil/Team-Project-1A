@@ -1,5 +1,5 @@
-The Avenger's,2018-01-27,Lots of heroes,2019-12-24,released
-The Avenger's 2,2019-03-15,Even more heroes,2020-05-22,released
-Mummy,2003-04-15,Kinda like Indiana Jones,2020-11-07,recieved
-Mummy 2,2004-05-16,More like Indiana Jones,2020-11-08,recieved
-Mummy 3,2005-06-17,A lot like Indiana Jones,2020-11-09,recieved
+The Avenger's,1,27,2018,Lots of heroes,12,24,2019,released
+The Avenger's 2,3,15,2019,Even more heroes,5,22,2020,released
+Mummy,4,15,2003,Kinda like Indiana Jones,11,7,2020,recieved
+Mummy 2,5,16,2004,More like Indiana Jones,11,8,2020,recieved
+Mummy 3,6,17,2005,A lot like Indiana Jones,11,9,2020,recieved
