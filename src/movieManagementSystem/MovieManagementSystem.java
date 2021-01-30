@@ -190,12 +190,19 @@ public class MovieManagementSystem {
 	 * Get the number of movies "coming" with a release date earlier then a given date
 	 */
 	public static int numOfComingMovies(ArrayList<Movie> comingMovies) {
-		Scanner userInput = new Scanner(System.in); 
-		System.out.println("Enter a date: ");
-		String input = userInput.nextLine();
+		userInput = new Scanner(System.in); 
+		System.out.println("Enter a date (MM/DD/YYYY): ");
+		int releaseMonth = userInput.nextInt();
+		int releaseDay = userInput.nextInt();
+		long releaseYear = userInput.nextLong();
+		Date userDate = new Date(releaseMonth, releaseDay, releaseYear);
+		
+		
 	   
-		for (int i = 0; i < comingMovies.size(); i++) {
-			
+		for (Movie movie : comingMovies) {
+			if (userDate < movie.getMovieRelease()) {
+				
+			}
 		}
 		
 		
