@@ -150,9 +150,10 @@ public class MovieManagementSystem {
 	public static void editMovie(ArrayList<Movie> coming) {
 		
 		System.out.println("What is the name of the movie you'd like to edit?");
-		String movieName = userInput.nextLine();
+		String movieName = userInput.next();
+		System.out.println(movieName);
 		for (Movie movie : coming) {
-			if (movie.getMovieTitle() == movieName) {
+			if (movie.getMovieTitle().equals(movieName)) {
 				System.out.println("Would you like to edit the release date(1) or description(2)?");
 				int editAction = userInput.nextInt();
 				switch (editAction) {
@@ -163,12 +164,13 @@ public class MovieManagementSystem {
 						long releaseYear = userInput.nextLong();
 						Date newReleaseDate = new Date(releaseMonth, releaseDay, releaseYear);
 						movie.setMovieReleaseDate(newReleaseDate);
-						break;
+						return;
 					case 2:
-						System.out.println("Enter the new description for " + movieName);
-						String newDesc = userInput.next();
+						userInput.nextLine();
+						String newDesc = userInput.nextLine();
+						System.out.print("Enter the new description for " + movieName);
 						movie.setMovieDesc(newDesc);
-						break;
+						return;
 				}
 			}
 			else {
