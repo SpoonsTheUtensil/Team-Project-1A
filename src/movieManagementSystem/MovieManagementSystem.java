@@ -136,15 +136,15 @@ public class MovieManagementSystem {
 	 */
 	public static void displayMovies(ArrayList<Movie> showing, ArrayList<Movie> coming) {
 		//Display "showing" movies
-		System.out.println("Movies being shown: ");
+		System.out.println("\nMovies being shown: ");
 		for (Movie movie : showing) {
-			System.out.println(movie);
+			System.out.println("-" + movie);
 		}
 		
 		//Display "coming" movies
-		System.out.println("Movies coming soon: ");
+		System.out.println("\nMovies coming soon: ");
 		for (Movie movie : coming) {
-			System.out.println(movie);
+			System.out.println("-" + movie);
 		}
 	}
 	
@@ -179,8 +179,8 @@ public class MovieManagementSystem {
 						return;
 					case 2:
 						userInput.nextLine();
-						String newDesc = userInput.nextLine();
 						System.out.print("Enter the new description for " + movieName);
+						String newDesc = userInput.nextLine();
 						movie.setMovieDesc(newDesc);
 						return;
 				}
