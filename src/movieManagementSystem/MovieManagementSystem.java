@@ -203,22 +203,6 @@ public class MovieManagementSystem {
 	 */
 	public static int numOfComingMovies(ArrayList<Movie> comingMovies) {
 		return comingMovies.size();
-		System.out.println("Enter a date (MM/DD/YYYY): ");
-		int releaseMonth = userInput.nextInt();
-		int releaseDay = userInput.nextInt();
-		long releaseYear = userInput.nextLong();
-		Date userDate = new Date(releaseMonth, releaseDay, releaseYear);
-		
-		
-	   
-		for (Movie movie : comingMovies) {
-			if (userDate < movie.getMovieRelease()) {
-				
-			}
-		}
-		
-		
-		return 1;
 	}
 	
 	/**
