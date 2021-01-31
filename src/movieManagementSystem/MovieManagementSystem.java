@@ -93,7 +93,7 @@ public class MovieManagementSystem {
 				displayMovies(moviesShowing, moviesComing);
 				break;
 			case '2':
-				addMovie();
+				addMovie(moviesComing);
 				break;
 			case '3':
 				editMovie(moviesComing);
@@ -151,8 +151,65 @@ public class MovieManagementSystem {
 	/**
 	 * Allows the user to add a movie to the "coming" list of movies
 	 */
-	public static void addMovie() {
+	public static void addMovie(ArrayList<Movie> coming) throws ParseException{
+		userInput.nextLine();
+		System.out.println("What's the name of the movie you would like to add?");
+		String movieName = userInput.nextLine();
+		boolean movieExists = false;
 		
+		for (Movie movie : coming) {
+			if (movieName.equals(movie.getMovieTitle())) {
+				movieExists = true;
+				break;
+			}
+			
+			}
+		if (!movieExists) {
+			Movie newMovie = new Movie();
+			newMovie.setMovieTitle(movieName);
+			
+			//Add exception if movie is already in the list
+			//userInput.nextLine();
+			System.out.println("What is the recieving date of the movie? Ex.(yyyy-MM-dd)");
+			String recieveDateInput = userInput.nextLine();
+			SimpleDateFormat recievedSimplified = new SimpleDateFormat("yyyy-MM-dd");
+			Date recievedDate = recievedSimplified.parse(recieveDateInput);
+			newMovie.setMovieRecieveDate(recievedDate);
+			
+			//Add "throws exception" if received date is invalid
+			System.out.println("What is the movie's description?");
+			String newMovieDesc = userInput.nextLine();
+			newMovie.setMovieDesc(newMovieDesc);
+				
+			System.out.println("What is the release date of the movie? Ex. (yyyy-MM-dd");
+			String releaseDateInput = userInput.nextLine();
+			SimpleDateFormat releaseSimplified = new SimpleDateFormat("yyyy-MM-dd");
+			Date releasedDate = releaseSimplified.parse(releaseDateInput);
+			newMovie.setMovieReleaseDate(releasedDate);
+				
+			//Add exception if movie's release date is earlier than or equal to the receive date
+			if (releasedDate.before(recievedDate) || (releasedDate.equals(recievedDate))) {
+				System.out.print("Released date cannot be before recieived date.");
+				return;
+			}
+				
+			//Add "throws exception" if released date is invalid or earlier than received date
+			System.out.println("Is the movie recieved enter (1) | Is the movie released enter (2)");
+			int addMovieAction = userInput.nextInt();
+			switch (addMovieAction) {
+				case 1:
+					newMovie.setMovieStatus(Status.RECEIVED);
+					coming.add(newMovie);
+					return;
+				case 2:
+					newMovie.setMovieStatus(Status.RELEASED);
+					coming.add(newMovie);
+					return;
+				}
+			}
+		else {
+			System.out.println("'" + movieName + "'" + " already exists.");
+		}
 	}
 	
 	/**
