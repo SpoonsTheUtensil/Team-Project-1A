@@ -14,7 +14,6 @@ This program will maintain two lists of movies including their:
 
 -Runtime Eclipse IDE for Java Developers-2020-12.    
 -Java SE 15.    
--*There are not any required modules outside of built-in ones*
 
 ## Group Members & Documentation
 Alex Schmierbach - [Github](https://github.com/SpoonsTheUtensil)  |  
