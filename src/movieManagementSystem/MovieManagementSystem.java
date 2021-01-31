@@ -84,7 +84,6 @@ public class MovieManagementSystem {
 		fileReader.close();
 
 		while (runProgram) {
-			System.out.println();
 			printMenu();
 			optionChoice = userInput.next().charAt(0);
 			
@@ -102,7 +101,7 @@ public class MovieManagementSystem {
 				showMovies();
 				break;
 			case '5':
-				System.out.print(numOfComingMovies(moviesComing));
+				System.out.print(numOfComingMovies(moviesComing) + " movies are showing before the given date.");
 				break;
 			case '6':
 				save(moviesComing, moviesShowing);
@@ -121,7 +120,7 @@ public class MovieManagementSystem {
 	 * Outputs a menu of actions the user can do
 	 */
 	public static void printMenu() {
-		System.out.println("#   -----MENU----- ");
+		System.out.println("\n#   -----MENU----- ");
 		System.out.println("1 - Display movies"
 				+ "\n2 - Add movie"
 				+ "\n3 - Edit movie release date or decription"
@@ -136,15 +135,15 @@ public class MovieManagementSystem {
 	 */
 	public static void displayMovies(ArrayList<Movie> showing, ArrayList<Movie> coming) {
 		//Display "showing" movies
-		System.out.println("Movies being shown: ");
+		System.out.println("\nMovies being shown: ");
 		for (Movie movie : showing) {
-			System.out.println(movie);
+			System.out.println("-" + movie);
 		}
 		
 		//Display "coming" movies
-		System.out.println("Movies coming soon: ");
+		System.out.println("\nMovies coming soon: ");
 		for (Movie movie : coming) {
-			System.out.println(movie);
+			System.out.println("-" + movie);
 		}
 	}
 	
@@ -236,8 +235,8 @@ public class MovieManagementSystem {
 						return;
 					case 2:
 						userInput.nextLine();
-						String newDesc = userInput.nextLine();
 						System.out.print("Enter the new description for " + movieName);
+						String newDesc = userInput.nextLine();
 						movie.setMovieDesc(newDesc);
 						return;
 				}
@@ -262,7 +261,7 @@ public class MovieManagementSystem {
 	 */
 	public static int numOfComingMovies(ArrayList<Movie> comingMovies) throws ParseException{ 
 		userInput.nextLine();
-		System.out.println("Enter a release date (yyyy-MM-dd): ");
+		System.out.println("Enter a release date (YYYY-MM-DD): ");
 		String releasedInput = userInput.nextLine();
 		SimpleDateFormat releasedSimplified = new SimpleDateFormat("yyyy-MM-dd");
 		Date userDate = releasedSimplified.parse(releasedInput);
