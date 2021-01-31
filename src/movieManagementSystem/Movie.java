@@ -52,7 +52,6 @@ public class Movie {
 		movie_status = status;
 	}
 	
-
 	// Getter method for obtaining the movies' name
 	public String getMovieTitle() {
 		return movie_name;
